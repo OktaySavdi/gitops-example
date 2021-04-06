@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: hello-route
+  labels:
+    app: hello
+spec:
+  path: /istio
+  to:
+    kind: Service
+    name: hello-svc
+    weight: 100
+  port:
+    targetPort: http-8080
+  wildcardPolicy: None
