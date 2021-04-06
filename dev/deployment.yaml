@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello
+  name: hello
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate: 
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - image: quay.io/oktaysavdi/istioproject:v1
+        env:
+        - name: env
+          value: dev
+        name: istio
+        resources:
+          limits:
+            memory: 258Mi
+            cpu: 100m
+          requests:
+            memory: 128Mi
+            cpu: 50m
+        ports:
+        - containerPort: 8080
