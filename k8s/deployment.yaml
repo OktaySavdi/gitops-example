@@ -20,7 +20,7 @@ spec:
         app: hello
     spec:
       containers:
-      - image: quay.io/oktaysavdi/istioproject:v1
+      - image: quay.io/oktaysavdi/istioproject:v2
         env:
         - name: env
           value: dev
