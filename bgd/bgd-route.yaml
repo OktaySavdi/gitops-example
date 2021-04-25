@@ -1,13 +1,11 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  creationTimestamp: null
   labels:
     app: bgd
   name: bgd
   namespace: bgd
 spec:
-  host: "bgd.apps.cluster-dde0.dde0.example.opentlc.com"
   port:
     targetPort: 8080
   to:
